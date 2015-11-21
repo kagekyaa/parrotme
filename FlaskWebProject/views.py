@@ -7,16 +7,18 @@ from flask import render_template
 from FlaskWebProject import app
 import pyoxford
 # from tokens import *
+oxford_computer_speech = "d6814acbebb940cd8553e0b125cc63a1"
+api = pyoxford.speech("kage-test-speech", oxford_computer_speech)
 
 @app.route('/')
 @app.route('/home')
 def home():
     """Renders the home page."""
     # bing_token = "bHBDnK+h8L79Mrmp8M0PHfyogYuTrpd6PM25bBh4S9A"
-    oxford_computer_speech = "d6814acbebb940cd8553e0b125cc63a1"
+    # oxford_computer_speech = "d6814acbebb940cd8553e0b125cc63a1"
 
     # text = "a b c d e f"
-    api = pyoxford.speech("kage-test-speech", oxford_computer_speech)
+    # api = pyoxford.speech("kage-test-speech", oxford_computer_speech)
 
     # text to speech (.wav file)
     # binary = api.text_to_speech(text)
