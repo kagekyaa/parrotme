@@ -7,8 +7,6 @@ from flask import render_template
 from FlaskWebProject import app
 import pyoxford
 # from tokens import *
-oxford_computer_speech = "d6814acbebb940cd8553e0b125cc63a1"
-api = pyoxford.speech("kage-test-speech", oxford_computer_speech)
 
 @app.route('/')
 @app.route('/home')
