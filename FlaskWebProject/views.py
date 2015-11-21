@@ -12,19 +12,19 @@ import pyoxford
 @app.route('/home')
 def home():
     """Renders the home page."""
-    bing_token = "bHBDnK+h8L79Mrmp8M0PHfyogYuTrpd6PM25bBh4S9A"
+    # bing_token = "bHBDnK+h8L79Mrmp8M0PHfyogYuTrpd6PM25bBh4S9A"
     oxford_computer_speech = "d6814acbebb940cd8553e0b125cc63a1"
 
-    text = "a b c d e f"
+    # text = "a b c d e f"
     api = pyoxford.speech("kage-test-speech", oxford_computer_speech)
 
     # text to speech (.wav file)
-    binary = api.text_to_speech(text)
+    # binary = api.text_to_speech(text)
     # with open("sound1.wav", "wb") as f:
     #     f.write(binary)
     #
     # # speech to text
-    recognized = api.speech_to_text("sound1.wav")
+    # recognized = api.speech_to_text("sound1.wav")
     # print(recognized)
     #
     # if text == recognized:
