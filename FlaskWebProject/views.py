@@ -7,6 +7,7 @@ from flask import render_template
 from FlaskWebProject import app
 import pyoxford
 # from tokens import *
+from hackathon import *
 
 @app.route('/')
 @app.route('/home')
@@ -45,3 +46,13 @@ def gameon():
         word = recognized
     )
 
+@app.route('/signup')
+def signup():
+    start = GameFunctions()
+
+    myscore = start.getScore()
+
+    return render_template(
+        'signup.html', score = myscore,
+        title = 'Lets learn with Parrot Me',
+    )
