@@ -6,7 +6,10 @@ from datetime import datetime
 from flask import render_template
 from FlaskWebProject import app
 import httplib, urllib, json
+import wave
 # from tokens import *
+
+music_dir = '/home/flask/FlaskWebProject/static/music'
 
 @app.route('/')
 @app.route('/home')
@@ -55,13 +58,18 @@ def game():
     ddata=json.loads(accesstoken)
     access_token = ddata['access_token']
 
+
     try:
-    # Read the binary from wave file
-        f = open('/sound1.wav','rb')
-        try:
-            body = f.read();
-        finally:
-            f.close()
+    # Read the binary from wav file
+    #     f = open('/sound1.wav','rb')
+    #     try:
+    #         body = f.read();
+    #     finally:
+    #         f.close()
+
+        w = wave.open("myfile.wav", "rb")
+        body = w.readframes(w.getnframes())
+        w.close()
 
 
         headers = {"Content-type": "audio/wav; samplerate=8000",
