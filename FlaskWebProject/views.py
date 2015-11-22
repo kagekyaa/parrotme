@@ -31,15 +31,12 @@ def gameon():
 
 
         params = urllib.urlencode({'grant_type': 'client_credentials', 'client_id': clientId, 'client_secret': clientSecret, 'scope': ttsHost})
-    except:
-        e = sys.exc_info()[0]
+
     # print ("The body data: %s" %(params))
-    try:
         headers = {"Content-type": "application/x-www-form-urlencoded"}
 
         AccessTokenHost = "oxford-speech.cloudapp.net"
         path = "/token/issueToken"
-
 
         # Connect to server to get the Oxford Access Token
         conn = httplib.HTTPSConnection(AccessTokenHost)
@@ -47,11 +44,12 @@ def gameon():
         conn.request("POST", path, params, headers)
         response = conn.getresponse()
         # print(response.status, response.reason)
+
+        data = response.read()
+        conn.close()
     except:
         e = sys.exc_info()[0]
-
-    data = response.read()
-    conn.close()
+        
     accesstoken = data.decode("UTF-8")
     # print ("Oxford Access Token: " + accesstoken)
 
