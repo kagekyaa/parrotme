@@ -67,7 +67,7 @@ def game():
     #     finally:
     #         f.close()
 
-        w = wave.open("/sound1.wav", "rb")
+        w = wave.open("/static/music/sound1.wav", "rb")
         body = w.readframes(w.getnframes())
         w.close()
 
@@ -94,6 +94,10 @@ def game():
 @app.route('/signup')
 def signup():
     myscore = 1
+
+
+
+
 
     return render_template(
         'signup.html', score = myscore,
