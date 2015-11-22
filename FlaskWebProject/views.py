@@ -67,7 +67,7 @@ def game():
     #     finally:
     #         f.close()
 
-        w = wave.open("myfile.wav", "rb")
+        w = wave.open("sound1.wav", "rb")
         body = w.readframes(w.getnframes())
         w.close()
 

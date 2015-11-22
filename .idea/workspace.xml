@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf1005d2-f2b4-4986-8d77-1917fb18b8e4" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Users\Kyaa\Downloads\Dropbox\College\IRVINE\UCI_Classes\HackUCI\babypython-azure-master\FlaskWebProject\templates\sound1.wav" afterPath="$PROJECT_DIR$/FlaskWebProject/static/music/sound1.wav" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FlaskWebProject/views.py" afterPath="$PROJECT_DIR$/FlaskWebProject/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="babypython-azure-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +26,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FlaskWebProject/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16732283">
-              <caret line="63" column="10" selection-start-line="63" selection-start-column="10" selection-end-line="68" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.43503937">
+              <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
               <folding>
                 <element signature="e#52#62#0" expanded="true" />
               </folding>
@@ -635,8 +633,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FlaskWebProject/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16732283">
-          <caret line="63" column="10" selection-start-line="63" selection-start-column="10" selection-end-line="68" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.43503937">
+          <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
           <folding>
             <element signature="e#52#62#0" expanded="true" />
           </folding>
