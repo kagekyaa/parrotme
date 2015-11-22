@@ -73,7 +73,6 @@ def gameon():
     except:
         e = sys.exc_info()[0]
 
-
     return render_template(
         'game.html',
         title = 'Parrot Me',
