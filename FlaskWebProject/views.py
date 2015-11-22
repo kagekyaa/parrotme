@@ -56,30 +56,27 @@ def gameon():
         ddata=json.loads(accesstoken)
         access_token = ddata['access_token']
 
+        # Read the binary from wave file
+        f = open('sound1.wav','rb')
+        try:
+            body = f.read();
+        finally:
+            f.close()
+
+        headers = {"Content-type": "audio/wav; samplerate=8000",
+                    "Authorization": "Bearer " + access_token}
+
+        #Connect to server to recognize the wave binary
+        conn = httplib.HTTPSConnection("speech.platform.bing.com")
+        conn.request("POST", "/recognize/query?scenarios=ulm&appid=D4D52672-91D7-4C74-8AD8-42B1D98141A5&locale=en-US&device.os=wp7&version=3.0&format=xml&requestid=1d4b6030-9099-11e0-91e4-0800200c9a66&instanceid=1d4b6030-9099-11e0-91e4-0800200c9a66", body, headers)
+        response = conn.getresponse()
+        # print(response.status, response.reason)
+        data = response.read()
+        # print(data)
+        conn.close()
+
     except:
         e = sys.exc_info()[0]
-
-    # Read the binary from wave file
-    f = open('sound1.wav','rb')
-    try:
-        body = f.read();
-    finally:
-        f.close()
-
-    headers = {"Content-type": "audio/wav; samplerate=8000",
-                "Authorization": "Bearer " + access_token}
-
-    #Connect to server to recognize the wave binary
-    conn = httplib.HTTPSConnection("speech.platform.bing.com")
-    conn.request("POST", "/recognize/query?scenarios=ulm&appid=D4D52672-91D7-4C74-8AD8-42B1D98141A5&locale=en-US&device.os=wp7&version=3.0&format=xml&requestid=1d4b6030-9099-11e0-91e4-0800200c9a66&instanceid=1d4b6030-9099-11e0-91e4-0800200c9a66", body, headers)
-    response = conn.getresponse()
-    # print(response.status, response.reason)
-    data = response.read()
-    # print(data)
-    conn.close()
-
-    # except:
-    #     e = sys.exc_info()[0]
 
     return render_template(
         'game.html',
