@@ -21,25 +21,26 @@ def home():
 @app.route('/game')
 def gameon():
 
-    bing_token = "bHBDnK+h8L79Mrmp8M0PHfyogYuTrpd6PM25bBh4S9A"
-    oxford_computer_speech = "d6814acbebb940cd8553e0b125cc63a1"
-
-    clientId = "kage-test-speech"
-    clientSecret = oxford_computer_speech
-    ttsHost = "https://speech.platform.bing.com"
-
     try:
+        bing_token = "bHBDnK+h8L79Mrmp8M0PHfyogYuTrpd6PM25bBh4S9A"
+        oxford_computer_speech = "d6814acbebb940cd8553e0b125cc63a1"
+
+        clientId = "kage-test-speech"
+        clientSecret = oxford_computer_speech
+        ttsHost = "https://speech.platform.bing.com"
+
+
         params = urllib.urlencode({'grant_type': 'client_credentials', 'client_id': clientId, 'client_secret': clientSecret, 'scope': ttsHost})
     except:
         e = sys.exc_info()[0]
     # print ("The body data: %s" %(params))
-
-    headers = {"Content-type": "application/x-www-form-urlencoded"}
-
-    AccessTokenHost = "oxford-speech.cloudapp.net"
-    path = "/token/issueToken"
-
     try:
+        headers = {"Content-type": "application/x-www-form-urlencoded"}
+
+        AccessTokenHost = "oxford-speech.cloudapp.net"
+        path = "/token/issueToken"
+
+
         # Connect to server to get the Oxford Access Token
         conn = httplib.HTTPSConnection(AccessTokenHost)
 
