@@ -49,14 +49,15 @@ def gameon():
         conn.close()
 
         accesstoken = data.decode("UTF-8")
-    # print ("Oxford Access Token: " + accesstoken)
+        # print ("Oxford Access Token: " + accesstoken)
+
+
+        #decode the object from json
+        ddata=json.loads(accesstoken)
+        access_token = ddata['access_token']
 
     except:
         e = sys.exc_info()[0]
-
-    #decode the object from json
-    ddata=json.loads(accesstoken)
-    access_token = ddata['access_token']
 
     # Read the binary from wave file
     f = open('sound1.wav','rb')
