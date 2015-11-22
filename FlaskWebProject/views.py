@@ -19,7 +19,7 @@ def home():
     )
 
 @app.route('/game')
-def gameon():
+def game():
 
     bing_token = "bHBDnK+h8L79Mrmp8M0PHfyogYuTrpd6PM25bBh4S9A"
     oxford_computer_speech = "d6814acbebb940cd8553e0b125cc63a1"
@@ -62,21 +62,21 @@ def gameon():
             body = f.read();
         finally:
             f.close()
+
+
+        headers = {"Content-type": "audio/wav; samplerate=8000",
+                    "Authorization": "Bearer " + access_token}
+
+        #Connect to server to recognize the wave binary
+        conn = httplib.HTTPSConnection("speech.platform.bing.com")
+        conn.request("POST", "/recognize/query?scenarios=ulm&appid=D4D52672-91D7-4C74-8AD8-42B1D98141A5&locale=en-US&device.os=wp7&version=3.0&format=xml&requestid=1d4b6030-9099-11e0-91e4-0800200c9a66&instanceid=1d4b6030-9099-11e0-91e4-0800200c9a66", body, headers)
+        response = conn.getresponse()
+        # print(response.status, response.reason)
+        data = response.read()
+        # print(data)
+        conn.close()
     except:
         e = sys.exc_info()[0]
-
-    headers = {"Content-type": "audio/wav; samplerate=8000",
-                "Authorization": "Bearer " + access_token}
-
-    #Connect to server to recognize the wave binary
-    conn = httplib.HTTPSConnection("speech.platform.bing.com")
-    conn.request("POST", "/recognize/query?scenarios=ulm&appid=D4D52672-91D7-4C74-8AD8-42B1D98141A5&locale=en-US&device.os=wp7&version=3.0&format=xml&requestid=1d4b6030-9099-11e0-91e4-0800200c9a66&instanceid=1d4b6030-9099-11e0-91e4-0800200c9a66", body, headers)
-    response = conn.getresponse()
-    # print(response.status, response.reason)
-    data = response.read()
-    # print(data)
-    conn.close()
-
     return render_template(
         'game.html',
         title = 'Parrot Me',
