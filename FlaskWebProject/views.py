@@ -67,7 +67,7 @@ def game():
     #     finally:
     #         f.close()
 
-        w = wave.open("/static/music/sound1.wav", "rb")
+        w = wave.open("FlaskWebProject/static/music/sound1.wav", "rb")
         body = w.readframes(w.getnframes())
         w.close()
 
