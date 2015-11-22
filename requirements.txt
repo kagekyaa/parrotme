@@ -1,3 +1,6 @@
 Flask==0.10.1
 pyoxford
 projectoxford
+http.client
+urllib.parse
+json
