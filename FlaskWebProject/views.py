@@ -47,12 +47,12 @@ def gameon():
 
         data = response.read()
         conn.close()
-    except:
-        e = sys.exc_info()[0]
-        
-    accesstoken = data.decode("UTF-8")
+
+        accesstoken = data.decode("UTF-8")
     # print ("Oxford Access Token: " + accesstoken)
 
+    except:
+        e = sys.exc_info()[0]
 
     #decode the object from json
     ddata=json.loads(accesstoken)
