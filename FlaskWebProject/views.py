@@ -30,8 +30,8 @@ def gameon():
             ttsHost = "https://speech.platform.bing.com"
 
             params = urllib.urlencode({'grant_type': 'client_credentials', 'client_id': clientId, 'client_secret': clientSecret, 'scope': ttsHost})
-        except Exception as a:
-
+        except Exception as a: e = 1
+        try:
             # print ("The body data: %s" %(params))
 
             headers = {"Content-type": "application/x-www-form-urlencoded"}
@@ -41,6 +41,8 @@ def gameon():
 
             # Connect to server to get the Oxford Access Token
             conn = httplib.HTTPSConnection(AccessTokenHost)
+        except Exception as b: e = 2
+        try:
             conn.request("POST", path, params, headers)
             response = conn.getresponse()
             # print(response.status, response.reason)
@@ -49,7 +51,8 @@ def gameon():
             conn.close()
             accesstoken = data.decode("UTF-8")
             # print ("Oxford Access Token: " + accesstoken)
-
+        except Exception as b: e = 3
+        try:
             #decode the object from json
             ddata=json.loads(accesstoken)
             access_token = ddata['access_token']
@@ -60,7 +63,8 @@ def gameon():
                 body = f.read();
             finally:
                 f.close()
-
+        except Exception as b: e = 4
+        try:
             headers = {"Content-type": "audio/wav; samplerate=8000",
                         "Authorization": "Bearer " + access_token}
 
@@ -72,7 +76,7 @@ def gameon():
             data = response.read()
             # print(data)
             conn.close()
-        raise a
+        except Exception as b: e = 5
     except:
         e = sys.exc_info()[0]
 
