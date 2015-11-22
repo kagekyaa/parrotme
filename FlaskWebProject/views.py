@@ -20,37 +20,35 @@ def home():
 
 @app.route('/game')
 def gameon():
-    try:
 
-        bing_token = "bHBDnK+h8L79Mrmp8M0PHfyogYuTrpd6PM25bBh4S9A"
-        oxford_computer_speech = "d6814acbebb940cd8553e0b125cc63a1"
+    bing_token = "bHBDnK+h8L79Mrmp8M0PHfyogYuTrpd6PM25bBh4S9A"
+    oxford_computer_speech = "d6814acbebb940cd8553e0b125cc63a1"
 
-        clientId = "kage-test-speech"
-        clientSecret = oxford_computer_speech
-        ttsHost = "https://speech.platform.bing.com"
+    clientId = "kage-test-speech"
+    clientSecret = oxford_computer_speech
+    ttsHost = "https://speech.platform.bing.com"
 
-        params = urllib.urlencode({'grant_type': 'client_credentials', 'client_id': clientId, 'client_secret': clientSecret, 'scope': ttsHost})
+    params = urllib.urlencode({'grant_type': 'client_credentials', 'client_id': clientId, 'client_secret': clientSecret, 'scope': ttsHost})
 
-        # print ("The body data: %s" %(params))
+    # print ("The body data: %s" %(params))
 
-        headers = {"Content-type": "application/x-www-form-urlencoded"}
+    headers = {"Content-type": "application/x-www-form-urlencoded"}
 
-        AccessTokenHost = "oxford-speech.cloudapp.net"
-        path = "/token/issueToken"
+    AccessTokenHost = "oxford-speech.cloudapp.net"
+    path = "/token/issueToken"
 
-        # Connect to server to get the Oxford Access Token
-        conn = httplib.HTTPSConnection(AccessTokenHost)
+    # Connect to server to get the Oxford Access Token
+    conn = httplib.HTTPSConnection(AccessTokenHost)
 
-        conn.request("POST", path, params, headers)
-        response = conn.getresponse()
-        # print(response.status, response.reason)
+    conn.request("POST", path, params, headers)
+    response = conn.getresponse()
+    # print(response.status, response.reason)
 
-        data = response.read()
-        conn.close()
-        accesstoken = data.decode("UTF-8")
-        # print ("Oxford Access Token: " + accesstoken)
-    except:
-        a = sys.exc_info()[0]
+    data = response.read()
+    conn.close()
+    accesstoken = data.decode("UTF-8")
+    # print ("Oxford Access Token: " + accesstoken)
+
     try:
         #decode the object from json
         ddata=json.loads(accesstoken)
@@ -81,7 +79,7 @@ def gameon():
     return render_template(
         'game.html',
         title = 'Parrot Me',
-        word = e, word2 = a
+        word = e
     )
 
 @app.route('/signup')
