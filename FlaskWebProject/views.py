@@ -87,8 +87,7 @@ def game():
         e = sys.exc_info()[0]
     return render_template(
         'game.html',
-        title = 'Parrot Me',
-        word = e
+        title = 'Parrot Me'
     )
 
 @app.route('/signup')
