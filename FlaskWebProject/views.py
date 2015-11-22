@@ -57,7 +57,7 @@ def gameon():
 
     try:
     # Read the binary from wave file
-        f = open('sound1.wav','rb')
+        f = open('/sound1.wav','rb')
         try:
             body = f.read();
         finally:
