@@ -6,7 +6,6 @@ from datetime import datetime
 from flask import render_template
 from FlaskWebProject import app
 import httplib, urllib, json
-import pyoxford
 # from tokens import *
 
 @app.route('/')
@@ -70,7 +69,6 @@ def gameon():
     data = response.read()
     # print(data)
     conn.close()
-
 
     return render_template(
         'game.html',
