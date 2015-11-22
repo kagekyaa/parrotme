@@ -61,15 +61,15 @@ def game():
 
     try:
     # Read the binary from wav file
-    #     f = open('/sound1.wav','rb')
-    #     try:
-    #         body = f.read();
-    #     finally:
-    #         f.close()
+        f = open('FlaskWebProject/static/music/sound1.wav','rb')
+        try:
+            body = f.read();
+        finally:
+            f.close()
 
-        w = wave.open("FlaskWebProject/static/music/sound1.wav", "rb")
-        body = w.readframes(w.getnframes())
-        w.close()
+        # w = wave.open("FlaskWebProject/static/music/sound1.wav", "rb")
+        # body = w.readframes(w.getnframes())
+        # w.close()
 
 
         headers = {"Content-type": "audio/wav; samplerate=8000",
